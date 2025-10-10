@@ -60,4 +60,4 @@ Open the project in Android Studio.
 
 Ensure you have the latest Android SDK and Kotlin plugin installed.
 
-Run the app on an emulator or a physical Android device.
+Run the app on an emulator or a physical Android device.  
