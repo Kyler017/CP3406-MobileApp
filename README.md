@@ -1,63 +1,87 @@
 👋 Introduction
-Welcome to the GitHub repository for [Your App Name]!
+Welcome to the GitHub repository for Pet Health & Wellness Tracker!
 
-This is my mobile application development project for the CP3406 / CP5307 subject. The goal was to build a fully functional Android app using Kotlin and Jetpack Compose.
+This is my mobile application development project for the CP3406 / CP5307 subject. The app is built using Kotlin and Jetpack Compose.
 
-
-
-The app, [Your App Name], is designed to [Insert a brief, engaging 1-2 sentence description of what your app does and its target audience].
-
-✨ Core Features
-Here are the main features and functionality implemented in this application:
-
-[Feature 1: e.g., Daily Task Tracker]: Users can [explain what the user can do].
+The goal of this application is to serve as a simple, all-in-one personal assistant for pet owners, helping them track their pets' health, manage appointments, and remember crucial tasks like vaccinations and walks.
 
 
-[Feature 2: e.g., Weather API Integration]: The app uses an external API to fetch [data type] for [purpose].
 
 
-[Feature 3: e.g., Persistent Data]: All user-created data, such as [data example], is stored locally and persistently.
+
+✨ Core Features (Proposed Features)
+The app is built around the following key functionalities, which address the problem of owners forgetting pet care tasks:
 
 
-[Feature 4: e.g., Detailed View]: A comprehensive view with navigation support to check all the specific details of a [data object].
 
-🛠️ Technical Implementation Details
-This project demonstrates several modern Android development best practices.
+Pet Profiles & Health Logs: Users can create profiles for their pets, tracking essential data like weight and viewing their medical history.
 
 
-1. Architecture and Design
-   I aimed for a clean and scalable application structure by using the following:
+Reminders and Schedule: Features a dedicated Calendar to display upcoming tasks, including vet appointments, vaccinations, and daily exercise.
 
 
-Jetpack Compose: Used exclusively for creating the entire UI, ensuring it is clean, responsive, and follows Material Design principles.
 
 
-Modern App Architecture: I implemented the Repository Pattern and used ViewModels to separate the UI from business logic and manage data according to the Android lifecycle.
+
+Data Synchronization: Ensures critical data is always available by fetching fresh information from an external API (Network Connectivity) and storing it locally (Room Database).
 
 
-Dependency Injection (DI): [Mention which DI library you plan to use, e.g., Hilt/Koin] was used to manage dependencies efficiently, which makes the code more modular and testable.
+
+Dashboard View: A clean Dashboard screen provides a quick overview of pet statistics and current health status.
+
+
+🛠️ Technical Implementation Details (App Architecture)
+This project strictly follows modern Android Architecture best practices and incorporates the required Advanced APIs.
+
+
+1. Architecture
+
+Jetpack Compose & Material Design: The entire user interface is constructed using Jetpack Compose, ensuring a clean, responsive, and user-friendly experience that adheres to Material Design principles.
+
+
+App Structure: We employ the MVVM (Model-View-ViewModel) approach with a Repository Pattern to ensure excellent separation of concerns.
+
+ViewModels: Manage UI-related data and lifecycle.
+
+Repository Pattern: Acts as the single source of truth, abstracting data access from the UI.
+
+
+Dependency Injection (DI): Simple dependency provision (via a custom AppContainer/Factory) is used to manage and provide singleton instances of the Repository and DAOs, supporting modular and maintainable code.
 
 2. Advanced APIs
-   The app relies on two key advanced APIs to support its functionality:
+   The following APIs are integrated to fulfill the assignment requirements:
 
-Room Database: Implemented for local data persistence. This ensures that key data is saved locally so the app can function [mention if it supports offline access].
 
-Network Connectivity: [Mention the networking library, e.g., Retrofit] is used to fetch data from the [External API Name, e.g., OpenWeatherMap API]. This provides novel and creative features such as.
+Room Database: Used for local, persistent storage of the Pet profiles, health logs, and task data.
 
-3. Testing
-   To ensure the app's stability, various testing methods were employed:
 
-Unit Tests: Written to cover the core business logic in the ViewModels and Repository classes.
+Network Connectivity (Retrofit): Configured to connect to an external API (e.g., fetching general pet status or care tips) to provide novel features.
 
-[Integration Tests / UI Tests]: [Choose one or both, and briefly explain what you tested, e.g., "UI Tests were written to ensure smooth navigation between key screens."]
+
+Data Syncing: The Repository implements an Offline-First strategy where the UI observes data from Room, and a refreshData() function handles fetching network data, converting it, and saving it to the local database for proper synchronization.
+
+3. Navigation
+
+Jetpack Compose Navigation: Used to manage all screen transitions, supporting smooth navigation between the top-level screens (Dashboard, Calendar, Profile).
+
+
+Argument Passing: The navigation graph is set up to safely pass data, such as a petId, to the PetDetailScreen.
 
 🚀 Getting Started
-To run the application locally in Android Studio:
+To clone and run the application in Android Studio:
 
 Clone this repository: git clone [Your Repository URL]
 
-Open the project in Android Studio.
+Open the project in Android Studio and wait for Gradle synchronization.
 
 Ensure you have the latest Android SDK and Kotlin plugin installed.
 
-Run the app on an emulator or a physical Android device.  
+Run the app on an emulator or a physical Android device.
+
+📝 Version Control & Development Progress
+This project's development is documented on GitHub using Git.
+
+
+Commit History: I am committed to making regular and descriptive commits (at least a few times each week) to clearly track development progress.
+
+Branching: [Optional: Mention if you plan to use feature branches, e.g., "Feature development, such as the reminder-feature, will be conducted on separate branches before merging into the main branch."]
